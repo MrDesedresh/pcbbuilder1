@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты проверки совместимости</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+        .button {
+            background-color: #7cfc00; /* Зеленый цвет кнопок */
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px; /* Скругленные углы */
+            cursor: pointer; /* Курсор в виде руки при наведении */
+            margin: 0 35px; /* Расстояние между кнопками */
+            transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+        }
+
+        .button:hover {
+            background-color: #287A51; /* Темнее при наведении */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Размещает кнопки равномерно */
+            margin-top: 20px;
+            margin-bottom: 20px; /* Отступ снизу */
+            padding: 0 20px; /* Отступ по бокам */
+        }
+</style>
+<body>
+    <header>
+        <h1>Результаты проверки совместимости</h1>
+    </header>
+    <div class="button-container">
+        <a href="{{ url_for('calculator') }}" class="button">Калькулятор мощности</a>
+        <a href="{{ url_for('about') }}" class="button">Готовые сборки</a>
+        <a href="{{ url_for('contact') }}" class="button">Информация о комплектующих</a>
+        <a href="{{ url_for('index') }}" class="button">Назад</a>
+    </div>
+    <main>
+        <section class="results">
+            <h2>Выбранные комплектующие:</h2>
+
+            <div class="component-cards">
+                {% if cpu %}
+                <div class="component-card">
+                    <h3>CPU: {{ cpu.name }}</h3>
+                    <p>Сокет: {{ cpu.socket }}</p>
+                    <p>Описание: {{ cpu.description }}</p> <!-- Добавьте описание, если оно есть в данных -->
+                </div>
+                {% endif %}
+
+                {% if motherboard %}
+                <div class="component-card">
+                    <h3>Материнская плата: {{ motherboard.name }}</h3>
+                    <p>Сокет: {{ motherboard.socket }}</p>
+                    <p>Тип RAM: {{ motherboard.ram_type }}</p>
+                    <!-- Добавьте другие сведения -->
+                </div>
+                {% endif %}
+
+                {% if ram %}
+                <div class="component-card">
+                    <h3>RAM: {{ ram.name }}</h3>
+                    <p>Тип: {{ ram.ram_type }}</p>
+                    <p>Объем: {{ ram.capacity }}</p> <!-- Пример, если у вас есть поле "capacity" -->
+                </div>
+                {% endif %}
+
+                {% if gpu %}
+                <div class="component-card">
+                    <h3>GPU: {{ gpu.name }}</h3>
+                    <p>Потребление энергии: {{ gpu.power_consumption }}</p>
+                    <!-- Добавьте другие сведения -->
+                </div>
+                {% endif %}
+
+                {% if power_supply %}
+                <div class="component-card">
+                    <h3>Блок питания: {{ power_supply.name }}</h3>
+                    <p>Мощность: {{ power_supply.wattage }}</p>
+                </div>
+                {% endif %}
+            </div>
+
+            {% if errors %}
+            <section class="errors">
+                <h2>Ошибки совместимости:</h2>
+                <ul>
+                    {% for error in errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% else %}
+            <p class="success">Совместимость проверена! Ошибок не обнаружено.</p>
+            {% endif %}
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 PCBuilder</p>
+    </footer>
+</body>
+</html>

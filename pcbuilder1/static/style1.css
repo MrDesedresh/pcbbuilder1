@@ -1,0 +1,68 @@
+body {
+    font-family: sans-serif;
+    background-color: #222;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 3px;
+    text-align: center;
+}
+
+nav button {
+    background-color: limegreen;
+    color: #222;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
+}
+
+.build-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.build {
+    background-color: #333;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.build button {
+    background-color: limegreen;
+    color: #222;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Стили для калькулятора */
+#calculator-container {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  margin: 20px auto;
+}
+
+
+
+

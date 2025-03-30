@@ -1,0 +1,225 @@
+body.dark-theme {
+  background-color: #222;
+  color: #7cfc00;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.header {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.header-content p {
+  color: #ccc;
+}
+
+.main {
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 5px;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  border-bottom: 1px solid #555;
+  padding-bottom: 10px;
+}
+
+/* Стили для формы выбора компонентов */
+.component-form .form-group {
+  margin-bottom: 15px;
+}
+
+.component-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #eee;
+}
+
+.component-form label i {
+  margin-right: 5px;
+  color: #7CFC00; /* Зеленый цвет иконок */
+}
+
+.component-form .component-select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #555;
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+/* Стили для кнопок */
+.submit-button,
+.proceed-button {
+  background-color: #7CFC00;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover,
+.proceed-button:hover {
+  background-color: #64dd17;
+}
+
+/* Стили для footer */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: #ccc;
+}
+/* Общие стили */
+body {
+    background-color: #1e1e1e;
+    color: #e0e0e0; /* Общий цвет текста - почти белый */
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+header h1 {
+    color: #ffffff; /* Белый заголовок */
+    margin-bottom: 0;
+    font-size: 2em;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.results {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.results h2 {
+    color: #7cfc00; /* Цвет lawn green */
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Карточки компонентов */
+.component-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.component-card {
+    background-color: #333333;
+    border-radius: 5px;
+    padding: 15px;
+    width: calc(50% - 20px);
+    box-sizing: border-box;
+    border: 1px solid #444;
+}
+
+.component-card h3 {
+    color: #ffffff; /* Заголовки теперь белые */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+/* Белый текст в карточках! */
+.component-card p {
+    margin-bottom: 5px;
+    color: #ffffff; /* Белый текст */
+    font-size: 0.9em;
+}
+
+.errors {
+    background-color: #500000; /* Очень темный красный фон */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Более сильная тень */
+    border: 2px solid #ff4500; /* Ярко-оранжевая рамка */
+}
+
+.errors h2 {
+    color: #ff4500; /* Ярко-оранжевый заголовок */
+    border-bottom: 2px solid #ff4500; /* Ярко-оранжевая линия */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    text-shadow: 0 0 5px #000; /* Тень для улучшения видимости */
+}
+
+.errors ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.errors li {
+    color: #ff4500; /* Ярко-оранжевый текст ошибок */
+    margin-bottom: 5px;
+    font-size: 1.1em; /* Сделал шрифт чуть больше */
+    text-shadow: 0 0 3px #000; /* Тень для текста */
+}
+
+.success {
+    color: #a3be8c;
+    font-weight: bold;
+    padding: 15px;
+    background-color: #333333;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #444;
+}
+.navigation {
+    display: flex; /* Размещаем кнопки в одну строку */
+    justify-content: space-around; /* Распределяем кнопки равномерно */
+    margin-top: 10px; /* Отступ от заголовка */
+}
+
+.nav-button {
+    background-color: #7cfc00; /* Зеленый цвет фона */
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px; /* Скругление углов */

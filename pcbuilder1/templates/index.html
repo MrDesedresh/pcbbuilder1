@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .button {
+            background-color: #7cfc00; /* Зеленый цвет кнопок */
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px; /* Скругленные углы */
+            cursor: pointer; /* Курсор в виде руки при наведении */
+            margin: 0 35px; /* Расстояние между кнопками */
+            transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+        }
+
+        .button:hover {
+            background-color: #287A51; /* Темнее при наведении */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Размещает кнопки равномерно */
+            margin-top: 20px;
+            margin-bottom: 20px; /* Отступ снизу */
+            padding: 0 20px; /* Отступ по бокам */
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <header class="header">
+        <div class="header-content">
+            <h1>PC Builder</h1>
+            <p>Configure your dream machine with our advanced power calculator and component selector</p>
+        </div>
+    </header>
+
+    <div class="button-container">
+        <a href="{{ url_for('calculator') }}" class="button">Калькулятор мощности</a>
+        <a href="{{ url_for('about') }}" class="button">Готовые сборки</a>
+        <a href="{{ url_for('contact') }}" class="button">Информация о комплектующих</a>
+    </div>
+
+
+    <main class="main">
+        <section class="component-selection section">
+            <h2 class="section-title">Выберите комплектующие</h2>
+            <form action="/check_compatibility" method="post" class="component-form">
+                <div class="form-group">
+                    <label for="cpu"><i class="fa fa-microchip"></i> CPU:</label>
+                    <select name="cpu" id="cpu" class="component-select">
+                        {% for cpu in cpus %}
+                            <option value="{{ cpu.id }}">{{ cpu.name }}</option>                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="motherboard"><i class="fa fa-server"></i> Материнская плата:</label>
+                    <select name="motherboard" id="motherboard" class="component-select">
+                        {% for motherboard in motherboards %}
+                            <option value="{{ motherboard.id }}">{{ motherboard.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ram"><i class="fa fa-memory"></i> RAM:</label>
+                    <select name="ram" id="ram" class="component-select">
+                        {% for ram in ram %}
+                                                    <option value="{{ ram.id }}">{{ ram.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="gpu"><i class="fa fa-fan"></i> GPU:</label>
+                    <select name="gpu" id="gpu" class="component-select">
+                        {% for gpu in gpus %}
+                        <option value="{{ gpu.id }}" data-power="{{ gpu.power_consumption }}">
+                            <i class="fa fa-fan"></i> {{ gpu.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="power_supply"><i class="fa fa-plug"></i> Блок питания:</label>
+                    <select name="power_supply" id="power_supply" class="component-select">
+                        {% for power_supply in power_supplies %}
+                            <option value="{{ power_supply.id }}">{{ power_supply.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-button">Проверить совместимость</button> <!-- Добавим класс submit-button -->
+            </form>
+
+        </section>
+    </main>
+
+    <footer class="footer"> <!-- Добавим класс footer -->
+        <p>&copy; 2025 PCBuilder</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
